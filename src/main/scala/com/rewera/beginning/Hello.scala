@@ -1,4 +1,4 @@
-package com.rewera
+package com.rewera.beginning
 
 import java.text.DateFormat
 import java.util.{Date, Locale}

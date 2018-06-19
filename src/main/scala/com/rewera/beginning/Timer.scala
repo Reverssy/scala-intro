@@ -1,4 +1,4 @@
-package com.rewera
+package com.rewera.beginning
 
 object Timer {
   def oncePerSecond(callback: () => Unit): Unit = {
