@@ -1,4 +1,4 @@
-package com.rewera.regex
+package com.rewera.extractors
 
 import scala.util.matching.Regex
 
@@ -7,7 +7,7 @@ object PasswordValidator {
   val upperCasePattern: Regex = "[A-Z]".r
   val specialCharacterPattern: Regex = "[^a-zA-Z0-9]".r
 
-  def validate(password: String): Boolean = {
+  def unapply(password: String): Option[String] = {
     val isNumber = numberPattern.findFirstMatchIn(password) match {
       case None =>
         println("Password must contain a number!")
@@ -29,8 +29,7 @@ object PasswordValidator {
       case _ => true
     }
 
-    isNumber && isUpperCase && isSpecialCharacter
+    if (isNumber && isUpperCase && isSpecialCharacter) Some("Password saved") else None
   }
-
 
 }
