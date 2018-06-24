@@ -1,0 +1,19 @@
+package com.rewera.stack
+
+class Stack[A] {
+  private var elements: List[A] = Nil
+
+  def push(newElement: A): Unit = {
+    elements = newElement :: elements
+  }
+
+  def peek(): A = elements.head
+
+  def pop(): A = {
+    val currentTop = peek()
+    elements = elements.tail
+    currentTop
+  }
+
+
+}
