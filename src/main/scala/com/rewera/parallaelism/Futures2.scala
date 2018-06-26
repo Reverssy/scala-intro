@@ -11,12 +11,13 @@ object Futures2 extends App {
     Thread.sleep(100)
     i + 1
   }
-  longRunningComputation(11).onComplete({
+
+  val longComputation = longRunningComputation(11)
+
+  longComputation.onComplete {
     case Success(result) => println(s"result = $result")
     case Failure(e) => e.printStackTrace()
-  })
+  }
 
   Thread.sleep(1000)
-
-
 }

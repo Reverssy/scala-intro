@@ -32,6 +32,7 @@ object Prog {
     val futureB = taskB()
     debug("Continuing Main")
 
+    // Don't use Await.result, please use map/flatMap instead if you need result
     Await.result(futureA zip futureB, Duration.Inf)
   }
 
