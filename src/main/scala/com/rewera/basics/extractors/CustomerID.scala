@@ -1,6 +1,8 @@
 package com.rewera.basics.extractors
 
+// I'll review it next time - Weird object
 object CustomerID {
+  // Vars == evil
   var counter: Int = 0
 
   def apply(name: String): String = {

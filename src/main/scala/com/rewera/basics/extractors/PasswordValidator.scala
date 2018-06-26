@@ -2,6 +2,7 @@ package com.rewera.basics.extractors
 
 import scala.util.matching.Regex
 
+// The same like in CustomerID, this object can be better, next time
 object PasswordValidator {
   val numberPattern: Regex = "[0-9]".r
   val upperCasePattern: Regex = "[A-Z]".r

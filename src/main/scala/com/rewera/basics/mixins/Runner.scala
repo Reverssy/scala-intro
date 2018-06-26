@@ -1,7 +1,8 @@
 package com.rewera.basics.mixins
 
+case class RichStringIterator() extends StringIterator("Scala") with RichIterator
+
 object Runner extends App {
-  class RichStringIterator extends StringIterator("Scala") with RichIterator
-  val richStringIterator = new RichStringIterator
+  val richStringIterator = RichStringIterator()
   richStringIterator.forEach(ch => println(ch.toUpper))
 }

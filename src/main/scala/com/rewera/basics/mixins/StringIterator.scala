@@ -1,5 +1,6 @@
 package com.rewera.basics.mixins
 
+// Review next time
 class StringIterator(s: String) extends AbsIterator {
   override type T = Char
   private var i = 0

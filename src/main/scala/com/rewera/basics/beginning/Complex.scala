@@ -1,31 +1,11 @@
 package com.rewera.basics.beginning
 
-class Complex {
-  private var real: Double = 0
-  private var imaginary: Double = 0
-
-  def re: Double = real
-  def im: Double = imaginary
-
-  def re_= (newValue: Double): Unit = {
-    real = newValue
-  }
-  def im_= (newValue: Double): Unit = {
-    imaginary = newValue
-  }
-
-
+case class Complex(real: Double = 0, imaginary: Double = 0) {
   def +(other: Complex): Complex = {
-    val real = this.re + other.re
-    val imaginary = this.im + other.im
-    val result = new Complex()
-    result.re = real
-    result.im = imaginary
-    result
+    val realResult = real + other.real
+    val imaginaryResult = imaginary + other.imaginary
+    Complex(realResult, imaginaryResult)
   }
 
-  override
-  def toString: String = {
-    re + ( if(im < 0) "" else "+") + im + "i"
-  }
+  override def toString: String = real + ( if(imaginary < 0) "" else "+") + imaginary + "i"
 }

@@ -1,13 +1,14 @@
 package com.rewera.basics.patternmatching
 
+sealed abstract class Notification
+
+case class Email(sender: String, title: String, body: String) extends Notification
+
+case class SMS(caller: String, message: String) extends Notification
+
+case class VoiceRecording(contactName: String, link: String) extends Notification
+
 object MatchMe extends App {
-
-  sealed abstract class Notification
-  case class Email(sender: String, title: String, body: String) extends Notification
-  case class SMS(caller: String, message: String) extends Notification
-  case class VoiceRecording(contactName: String, link: String) extends Notification
-
-
   def showNotification(notification: Notification, importantPeopleList: Seq[String]): String = {
     notification match {
       case Email(sender, _, _) if importantPeopleList.contains(sender) =>
@@ -17,7 +18,7 @@ object MatchMe extends App {
       case VoiceRecording(contactName, _) if importantPeopleList.contains(contactName) =>
         "You've got a voice recording from someone special!!!"
       case _ =>
-        showNormalNotification(notification);
+        showNormalNotification(notification)
     }
 
   }
@@ -42,7 +43,4 @@ object MatchMe extends App {
   println(showNotification(someEmail, importantPeople))
   println(showNotification(someSms, importantPeople))
   println(showNotification(someVoiceRecording, importantPeople))
-
-
-
 }

@@ -1,22 +1,28 @@
 package com.rewera.basics.forcomprehensions
 
-object Comprehensions extends App {
-  trait WeatherType
-  case object Rainy extends WeatherType
-  case object Cloudy extends WeatherType
-  case object Sunny extends WeatherType
+trait WeatherType
+case object Rainy extends WeatherType
+case object Cloudy extends WeatherType
+case object Sunny extends WeatherType
 
-  case class Forecast(location: String, weather: WeatherType)
 
+case class Forecast(location: String, weather: WeatherType)
+
+object Comprehensions {
   val eveningForecast = Seq(
     Forecast("London", Rainy),
     Forecast("Paris", Cloudy),
     Forecast("Cracow", Rainy),
-    Forecast("Dubrovnik", Sunny))
+    Forecast("Dubrovnik", Sunny)
+  )
 
-  val rainyPlaces = for ( forecast <- eveningForecast if forecast.weather == Rainy || forecast.weather == Cloudy )
-    yield forecast.location
+  val rainyPlaces = for(
+    forecast <- eveningForecast if forecast.weather == Rainy || forecast.weather == Cloudy
+  ) yield forecast.location
 
-  rainyPlaces.foreach(location => println(location))
-
+  def main(args: Array[String]): Unit = {
+    rainyPlaces.foreach(location => println(location))
+    rainyPlaces.foreach(println)
+    rainyPlaces.foreach(println(_))
+  }
 }

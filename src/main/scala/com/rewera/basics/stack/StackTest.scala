@@ -1,10 +1,10 @@
 package com.rewera.basics.stack
 
-object StackTest extends App {
-  trait Fruit
-  class Apple extends Fruit
-  class Banana extends Fruit
+trait Fruit
+class Apple extends Fruit
+class Banana extends Fruit
 
+object StackTest extends App {
   val stack = new Stack[Fruit]
   stack.push(new Apple)
   stack.push(new Banana)

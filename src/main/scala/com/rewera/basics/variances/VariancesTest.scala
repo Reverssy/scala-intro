@@ -15,5 +15,4 @@ object VariancesTest extends App {
   case class Nil[+B]() extends Node[B] {
     override def prepend[U >: B](elem: U): Node[U] = ListNode(elem, this)
   }
-
 }

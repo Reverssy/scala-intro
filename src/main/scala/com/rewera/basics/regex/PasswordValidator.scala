@@ -2,6 +2,7 @@ package com.rewera.basics.regex
 
 import scala.util.matching.Regex
 
+// Review next time
 object PasswordValidator {
   val numberPattern: Regex = "[0-9]".r
   val upperCasePattern: Regex = "[A-Z]".r
@@ -31,6 +32,4 @@ object PasswordValidator {
 
     isNumber && isUpperCase && isSpecialCharacter
   }
-
-
 }
