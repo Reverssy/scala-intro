@@ -1,17 +1,19 @@
 package com.rewera.basics.stack
 
+import scala.collection.mutable.ListBuffer
+
 class Stack[A] {
-  private var elements: List[A] = Nil
+  private val elements = new ListBuffer[A]()
 
   def push(newElement: A): Unit = {
-    elements = newElement :: elements
+    elements += newElement
   }
 
-  def peek(): A = elements.head
+  def peek(): A = elements.last
 
   def pop(): A = {
     val currentTop = peek()
-    elements = elements.tail
+    elements -= currentTop
     currentTop
   }
 
